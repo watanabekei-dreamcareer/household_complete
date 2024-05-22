@@ -25,3 +25,4 @@ const MonthlySummary = ({ expenses, selectedMonth }) => {
 
 export default MonthlySummary;
 
+

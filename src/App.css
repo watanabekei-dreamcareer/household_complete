@@ -1,8 +1,32 @@
 .app-container {
   padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  color: #333;
+}
+
+.header {
+  color: white;
+  background-color: #1e90ff;
+  padding: 20px;
+  text-align: center;
+  border-radius: 5px;
 }
 
 .summary-container {
   display: flex;
   justify-content: space-between;
+  gap: 10px;
+}
+
+.expense-list-container {
+  flex: 2;
+}
+
+.category-summary-container {
+  flex: 1;
+}
+
+.monthly-summary-container {
+  flex: 1;
 }

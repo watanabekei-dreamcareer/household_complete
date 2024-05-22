@@ -5,14 +5,16 @@ const ExpenseForm = ({ addExpense, categories, addCategory }) => {
   const [item, setItem] = useState('');
   const [category, setCategory] = useState('');
   const [amount, setAmount] = useState('');
+  const [date, setDate] = useState('');
   const [newCategory, setNewCategory] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addExpense({ item, category, amount: parseFloat(amount), date: new Date() });
+    addExpense({ item, category, amount: parseFloat(amount), date: new Date(date) });
     setItem('');
     setCategory('');
     setAmount('');
+    setDate('');
   };
 
   const handleAddCategory = (e) => {
@@ -42,6 +44,12 @@ const ExpenseForm = ({ addExpense, categories, addCategory }) => {
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
           placeholder="金額"
+          required
+        />
+        <input
+          type="date"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
           required
         />
         <button type="submit">追加</button>

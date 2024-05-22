@@ -7,7 +7,7 @@ import './App.css';
 
 const App = () => {
   const [expenses, setExpenses] = useState([]);
-  const [categories, setCategories] = useState(['Food', 'Transport', 'Entertainment']);
+  const [categories, setCategories] = useState(['食費', '光熱費', '交通費','アパレル','美容','生活雑貨','旅行']);
   const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth());
 
   useEffect(() => {
@@ -35,17 +35,23 @@ const App = () => {
 
   return (
     <div className="app-container">
-      <h1>家計簿アプリ</h1>
+      <h1 className="header">家計簿アプリ</h1>
       <ExpenseForm addExpense={addExpense} categories={categories} addCategory={addCategory} />
       <div className="summary-container">
-        <ExpenseList
-          expenses={expenses}
-          selectedMonth={selectedMonth}
-          editExpense={editExpense}
-          deleteExpense={deleteExpense}
-        />
-        <CategorySummary expenses={expenses} />
-        <MonthlySummary expenses={expenses} selectedMonth={selectedMonth} />
+        <div className="expense-list-container">
+          <ExpenseList
+            expenses={expenses}
+            selectedMonth={selectedMonth}
+            editExpense={editExpense}
+            deleteExpense={deleteExpense}
+          />
+        </div>
+        <div className="category-summary-container">
+          <CategorySummary expenses={expenses} />
+        </div>
+        <div className="monthly-summary-container">
+          <MonthlySummary expenses={expenses} selectedMonth={selectedMonth} />
+        </div>
       </div>
     </div>
   );
