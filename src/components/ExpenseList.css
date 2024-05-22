@@ -1,0 +1,22 @@
+.expense-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .expense-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .expense-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .expense-actions button {
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+  

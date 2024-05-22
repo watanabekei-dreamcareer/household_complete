@@ -1,0 +1,12 @@
+.form-container {
+    margin-bottom: 20px;
+  }
+  
+  .form-container input,
+  .form-container select,
+  .form-container button {
+    margin-right: 10px;
+    padding: 5px;
+    font-size: 16px;
+  }
+  

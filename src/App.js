@@ -1,25 +1,55 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import ExpenseForm from './components/ExpenseForm';
+import ExpenseList from './components/ExpenseList';
+import CategorySummary from './components/CategorySummary';
+import MonthlySummary from './components/MonthlySummary';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [expenses, setExpenses] = useState([]);
+  const [categories, setCategories] = useState(['Food', 'Transport', 'Entertainment']);
+  const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth());
+
+  useEffect(() => {
+    // 月ごとの合計計算ロジックをここに追加
+  }, [expenses, selectedMonth]);
+
+  const addExpense = (expense) => {
+    setExpenses([...expenses, expense]);
+  };
+
+  const addCategory = (category) => {
+    setCategories([...categories, category]);
+  };
+
+  const editExpense = (index, updatedExpense) => {
+    const newExpenses = [...expenses];
+    newExpenses[index] = { ...newExpenses[index], ...updatedExpense };
+    setExpenses(newExpenses);
+  };
+
+  const deleteExpense = (index) => {
+    const newExpenses = expenses.filter((_, i) => i !== index);
+    setExpenses(newExpenses);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      <h1>家計簿アプリ</h1>
+      <ExpenseForm addExpense={addExpense} categories={categories} addCategory={addCategory} />
+      <div className="summary-container">
+        <ExpenseList
+          expenses={expenses}
+          selectedMonth={selectedMonth}
+          editExpense={editExpense}
+          deleteExpense={deleteExpense}
+        />
+        <CategorySummary expenses={expenses} />
+        <MonthlySummary expenses={expenses} selectedMonth={selectedMonth} />
+      </div>
     </div>
   );
-}
+};
 
 export default App;
+
