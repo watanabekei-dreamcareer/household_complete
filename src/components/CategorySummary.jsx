@@ -3,17 +3,20 @@ import './CategorySummary.css';
 
 const CategorySummary = ({ expenses }) => {
   const categoryTotals = expenses.reduce((acc, expense) => {
-    acc[expense.category] = (acc[expense.category] || 0) + expense.amount;
+    if (!acc[expense.category]) {
+      acc[expense.category] = 0;
+    }
+    acc[expense.category] += expense.amount;
     return acc;
   }, {});
 
   return (
     <div>
       <h2>カテゴリ別合計</h2>
-      <ul className="category-summary">
+      <ul>
         {Object.keys(categoryTotals).map((category, index) => (
-          <li key={index} className="category-item">
-            {category}: ¥{categoryTotals[category]}
+          <li key={index}>
+            {category}: {categoryTotals[category].toLocaleString()}円
           </li>
         ))}
       </ul>

@@ -1,22 +1,36 @@
 .expense-list {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .expense-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .expense-actions {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .expense-actions button {
-    padding: 5px 10px;
-    font-size: 14px;
-  }
-  
+  list-style-type: none;
+  padding: 0;
+}
+
+.expense-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  background-color: #f0f8ff;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.expense-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.expense-actions button {
+  padding: 5px 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 3px;
+}
+
+.expense-actions .edit-btn {
+  background-color: #1e90ff;
+  color: white;
+}
+
+.expense-actions .delete-btn {
+  background-color: #ff6347;
+  color: white;
+}

@@ -1,24 +1,20 @@
 import React, { useState } from 'react';
 import './ExpenseList.css';
 
-const ExpenseList = ({ expenses, selectedMonth, editExpense, deleteExpense }) => {
+const ExpenseList = ({ expenses, editExpense, deleteExpense }) => {
   const [isEditing, setIsEditing] = useState(null);
   const [editedItem, setEditedItem] = useState('');
   const [editedCategory, setEditedCategory] = useState('');
   const [editedAmount, setEditedAmount] = useState('');
   const [editedDate, setEditedDate] = useState('');
 
-  const filteredExpenses = expenses.filter(
-    (expense) => new Date(expense.date).getMonth() === selectedMonth
-  );
-
   const handleEdit = (index) => {
-    const expense = filteredExpenses[index];
     setIsEditing(index);
+    const expense = expenses[index];
     setEditedItem(expense.item);
     setEditedCategory(expense.category);
     setEditedAmount(expense.amount);
-    setEditedDate(expense.date.toISOString().split('T')[0]);
+    setEditedDate(expense.date);
   };
 
   const handleSave = (index) => {
@@ -26,7 +22,7 @@ const ExpenseList = ({ expenses, selectedMonth, editExpense, deleteExpense }) =>
       item: editedItem,
       category: editedCategory,
       amount: parseFloat(editedAmount),
-      date: new Date(editedDate),
+      date: editedDate,
     });
     setIsEditing(null);
   };
@@ -34,8 +30,8 @@ const ExpenseList = ({ expenses, selectedMonth, editExpense, deleteExpense }) =>
   return (
     <div>
       <h2>購入品一覧</h2>
-      <ul className="expense-list">
-        {filteredExpenses.map((expense, index) => (
+      <ul>
+        {expenses.map((expense, index) => (
           <li key={index} className="expense-item">
             {isEditing === index ? (
               <>

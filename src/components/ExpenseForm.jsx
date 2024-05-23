@@ -70,3 +70,4 @@ const ExpenseForm = ({ addExpense, categories, addCategory }) => {
 
 export default ExpenseForm;
 
+

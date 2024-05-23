@@ -1,6 +1,6 @@
 .form-container {
   margin-bottom: 20px;
-  background-color: #f0f8ff; /* 白に近い青 */
+  background-color: #f0f8ff;
   padding: 10px;
   border-radius: 5px;
 }
@@ -11,11 +11,11 @@
   margin-right: 10px;
   padding: 5px;
   font-size: 16px;
-  border: 1px solid #1e90ff; /* 青 */
+  border: 1px solid #1e90ff;
   border-radius: 3px;
 }
 
 .form-container button {
-  background-color: #1e90ff; /* 青 */
+  background-color: #1e90ff;
   color: white;
 }

@@ -1,7 +1,10 @@
-.monthly-summary {
-  padding: 20px;
-  border: 1px solid #1e90ff;
+p {
   background-color: #f0f8ff;
+  padding: 10px;
   border-radius: 5px;
-  margin-bottom: 20px;
+  border: 1px solid #1e90ff;
+}
+
+h2 {
+  color: #1e90ff;
 }

@@ -1,12 +1,14 @@
 .category-summary {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .category-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-  }
-  
+  list-style-type: none;
+  padding: 0;
+  background-color: #f0f8ff;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.category-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
